@@ -1,11 +1,17 @@
 package com.jobportal.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Project {
     private long id;
     private String title;
     private String description;
+    private List<Employee> employeeList;
+
+    public Project(){
+        this.employeeList = new ArrayList<>();
+    }
 
 
     public long getId() {
@@ -32,5 +38,11 @@ public class Project {
         this.description = description;
     }
 
+    public List<Employee> getEmployeeList() {
+        return employeeList;
+    }
 
+    public void setEmployeeList(List<Employee> employeeList) {
+        this.employeeList = employeeList;
+    }
 }

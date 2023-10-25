@@ -9,6 +9,7 @@ public interface ProfileService {
     void createProfile(Profile profile);
     Profile getProfileById(long profileId);
 
-    List<Profile> getProfileList()// CRUD
-    ;
+    List<Profile> getProfileList();
+
+    void createSkills(long ProfileId ,String skills);
 }

@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Profile {
     private long id;
-    private Experience experience;
     private String university;
     private String department;
     private List<Project> projects;
@@ -20,14 +19,6 @@ public class Profile {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public Experience getExperience() {
-        return experience;
-    }
-
-    public void setExperience(Experience experience) {
-        this.experience = experience;
     }
 
     public String getUniversity() {
@@ -58,16 +49,16 @@ public class Profile {
         return graduationDate;
     }
 
-    public void setGraduationDate(LocalDate graduationDate) {
-        this.graduationDate = graduationDate;
+    public void setGraduationDate(int year, int mounth, int day) {
+        this.graduationDate = LocalDate.of(year, mounth, day);
     }
 
     public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
+    public void setBirthDate(int year, int mounth, int day) {
+        this.birthDate = LocalDate.of(year, mounth, day);
     }
 
     public List<String> getSkills() {

@@ -29,7 +29,13 @@ public class ProfileServiceImpl implements ProfileService {
         @Override
         public List<Profile> getProfileList() {
             return profileList;
-        }// CRUD
+        }
+
+    @Override
+    public void createSkills(long profileId, String skills) {
+        getProfileById(profileId).getSkills().add(skills);
+        System.out.println("Skill added");
+    }
 
 }
 

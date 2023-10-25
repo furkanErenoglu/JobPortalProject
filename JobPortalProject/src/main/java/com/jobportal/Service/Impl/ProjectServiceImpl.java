@@ -26,4 +26,8 @@ public class ProjectServiceImpl implements ProjectService {
         return null;
     }
 
+    public List<Project> getProjectList(){
+        return projectList;
+    }
+
 }
