@@ -15,16 +15,20 @@ public class ApplicationServiceImpl implements ApplicationService {
         this.employeeService = employeeService;
         this.projectService = projectService;
     }
+    List<Employee> applicants = new ArrayList<>();
 
     @Override
     public void toApply(long employeeId, long projectId) {
         if (projectService.getProjectList().equals(projectService.getProjectById(projectId))){
             projectService.getProjectById(projectId).getEmployeeList().add(employeeService.getEmployeeById(employeeId));
-        }else {
-            System.out.println("project not found");
+            applicants.add(employeeService.getEmployeeById(employeeId));
         }
 
 
+    }
+
+    public List<Employee> getApplicants(){
+        return applicants;
     }
 
 

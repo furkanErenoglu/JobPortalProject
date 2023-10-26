@@ -11,9 +11,8 @@ public class Main {
         EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
         ProjectServiceImpl projectService = new ProjectServiceImpl();
         ProfileServiceImpl profileService = new ProfileServiceImpl();
-        ReceiveApplicationServiceImpl receiveApplicationService =new ReceiveApplicationServiceImpl();
         ApplicationServiceImpl applicationService = new ApplicationServiceImpl(employeeService, projectService);
-
+        ReceiveApplicationServiceImpl receiveApplicationService =new ReceiveApplicationServiceImpl(applicationService);
 
         Experience experience = new Experience();
         experience.setId(12356879);
@@ -65,7 +64,7 @@ public class Main {
 
         applicationService.toApply(321564789,741852963);
 
-        applicationService.
+
 
 
     }

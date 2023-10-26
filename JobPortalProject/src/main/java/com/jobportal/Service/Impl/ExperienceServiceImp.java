@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExperienceServiceImp implements ExperienceService {
-    private List<Experience> experienceList = new ArrayList<>();
+    private final List<Experience> experienceList = new ArrayList<>();
     @Override
     public Experience getExperienceById(long experienceId) {
         for (Experience experience : experienceList){
@@ -17,7 +17,6 @@ public class ExperienceServiceImp implements ExperienceService {
         }
         return null;
     }
-
 
 
 
