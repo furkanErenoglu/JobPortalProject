@@ -32,7 +32,8 @@ public class ApplicationServiceImpl implements ApplicationService {
             Application application = new Application();
             application.setId(generateApplicationId());
             application.setProject(project);
-            System.out.println("applied completed");
+
+            System.out.println("applied completed your application id is" + application.getId());
         }
     }
 
