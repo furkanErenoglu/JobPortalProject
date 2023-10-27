@@ -17,13 +17,12 @@ public class ReceiveApplicationServiceImpl implements ReceiveApplicationService 
         this.applicationService = applicationService;
 
     }
-    Map<String , Project> receiveApplications = new HashMap<>();
+    Map<Long  , Project> receiveApplications = new HashMap<>();
 
 
     @Override
     public void receiveApplication(long applicationId) {
-
-        receiveApplications.put(applicationService.applicants(),)
-
+        Application application = applicationService.getApplicationById(applicationId);
+        receiveApplications.put(application.getId(),application.getProject());
     }
 }
