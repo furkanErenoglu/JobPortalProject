@@ -1,18 +1,16 @@
 package com.jobportal;
 
 import com.jobportal.Data.*;
-import com.jobportal.Service.EmployerService;
 import com.jobportal.Service.Impl.*;
 
 public class Main {
     public static void main(String[] args) {
-
         EmployerServiceImpl employerService = new EmployerServiceImpl();
         EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
         ProjectServiceImpl projectService = new ProjectServiceImpl();
         ProfileServiceImpl profileService = new ProfileServiceImpl();
-        ApplicationServiceImpl applicationService = new ApplicationServiceImpl(employeeService, projectService);
-        ReceiveApplicationServiceImpl receiveApplicationService =new ReceiveApplicationServiceImpl(applicationService);
+        ApplicationServiceImpl applicationService = new ApplicationServiceImpl(employeeService);
+        ReceiveApplicationServiceImpl receiveApplicationService =new ReceiveApplicationServiceImpl(applicationService , employeeService);
 
         Experience experience = new Experience();
         experience.setId(12356879);
@@ -59,14 +57,11 @@ public class Main {
         projectService.createdProject(project);
 
         Application application = new Application();
-        application.setId(963852741);
-        application.setProject(project);
+        application.setId("963852741");
+
 
         applicationService.toApply(321564789,741852963);
-
-
-
-
-
+        receiveApplicationService.receiveApplication(application.getId(), 321564789);
+        System.out.println(receiveApplicationService.comformentApplication());
     }
 }

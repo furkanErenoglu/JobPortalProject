@@ -9,6 +9,7 @@ import java.util.List;
 public class ProfileServiceImpl implements ProfileService {
 
     private List<Profile> profileList = new ArrayList<>();
+    private List<String > skills = new ArrayList<>();
 
     @Override
     public void createProfile(Profile profile) {
@@ -33,8 +34,13 @@ public class ProfileServiceImpl implements ProfileService {
 
     @Override
     public void createSkills(long profileId, String skills) {
-        getProfileById(profileId).getSkills().add(skills);
-        System.out.println("Skill added");
+        for (Profile profile : profileList){
+            if (profile.getId() == profileId){
+                getProfileById(profileId).getSkills().add(skills);
+                System.out.println("Skill added");
+            }
+        }
+
     }
 
 }

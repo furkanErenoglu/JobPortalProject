@@ -7,8 +7,8 @@ import java.util.List;
 public interface ApplicationService {
 
     void toApply(long employeeId, long projectId);
-    void addApplication(long applicationId);
-    Application getApplicationById(long applicationId);
+    void addApplication(String  applicationId);
+    Application getApplicationById(String applicationId);
 
 
 }

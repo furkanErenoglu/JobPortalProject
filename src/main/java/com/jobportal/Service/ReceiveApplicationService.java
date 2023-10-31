@@ -9,6 +9,6 @@ import java.util.Map;
 
 public interface ReceiveApplicationService {
 
-    void receiveApplication(long applicationId);
+    void receiveApplication(String  applicationId , long employeeId);
 
 }
