@@ -4,11 +4,11 @@ import com.jobportal.Data.*;
 import com.jobportal.Service.Impl.*;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         EmployerServiceImpl employerService = new EmployerServiceImpl();
         EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
-        ProjectServiceImpl projectService = new ProjectServiceImpl(employeeService);
-        ProfileServiceImpl profileService = new ProfileServiceImpl();
+        ProfileServiceImpl profileService = new ProfileServiceImpl(employeeService);
+        ProjectServiceImpl projectService = new ProjectServiceImpl(profileService);
         ExperienceServiceImp experienceService = new ExperienceServiceImp(profileService);
         ApplicationServiceImpl applicationService = new ApplicationServiceImpl(employeeService, employerService);
         ReceiveApplicationServiceImpl receiveApplicationService =new ReceiveApplicationServiceImpl(applicationService , employeeService, employerService);
@@ -27,7 +27,6 @@ public class Main {
         employer.setId(123456789);
         employer.setEmail("example@gmail.com");
         employer.setFullName("Jack Sparrow");
-        employer.setExperience(experience);
 
 
         employerService.addEmployer(employer);
@@ -42,11 +41,11 @@ public class Main {
 
         profileService.createSkills(456123789,"Time management");
 
-        profileService.createProfile(profile);
-        System.out.println(profileService.getProfileList());
 
 
-        //experienceService.addExperience(experience,456123789);
+
+
+        experienceService.addExperience(experience,456123789);
 
 
         Employee employee = new Employee();
@@ -55,13 +54,15 @@ public class Main {
         employee.setFullName("Homelander");
 
         employeeService.createEmployee(employee);
+        profileService.createProfile(profile , 321564789);
+        System.out.println(profileService.getProfileList());
 
         Project project = new Project();
         project.setId(741852963);
         project.setTitle("Flight Reservation System");
         project.setDescription("I want to hire a back-end developer for the Flight Reservation System");
 
-        projectService.createdProject(project, employee.getId());
+        projectService.createdProject(project, profile.getId());
 
         Application application = new Application();
         application.setId(963852741);

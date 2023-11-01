@@ -2,6 +2,7 @@ package com.jobportal.Service.Impl;
 
 
 import com.jobportal.Data.Employee;
+import com.jobportal.Data.Profile;
 import com.jobportal.Data.Project;
 import com.jobportal.Service.ProjectService;
 
@@ -9,18 +10,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProjectServiceImpl implements ProjectService {
-    private EmployeeServiceImpl employeeService;
+    private ProfileServiceImpl profileService;
 
-    public ProjectServiceImpl(EmployeeServiceImpl employeeService){
-        this.employeeService = employeeService;
+    public ProjectServiceImpl(ProfileServiceImpl profileService){
+        this.profileService= profileService;
     }
+
     private List<Project> projectList = new ArrayList<>();
+
     @Override
-    public void createdProject(Project project, long employeeId) {
-        Employee employee = employeeService.getEmployeeById(employeeId);
-        project.getEmployeeList().add(employee);
-        projectList.add(project);
-        System.out.println("Project created successfully");
+    public void createdProject(Project project, long profileId) {
+        Profile profile = profileService.getProfileById(profileId);
+        if (profile != null){
+            profile.getProjects().add(project);
+            projectList.add(project);
+            System.out.println("Project created successfully");
+        }else{
+            System.out.println("Profile not found for id: " + profileId);
+        }
+
 
     }
 

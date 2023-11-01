@@ -7,11 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface ProfileService {
-    void createProfile(Profile profile);
+    void createProfile(Profile profile, long employeeId);
     Profile getProfileById(long profileId);
-
-    List<Profile> getProfileList();
-
     void createSkills(long profileId ,String skills);
 
 }

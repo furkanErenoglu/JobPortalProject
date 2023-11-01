@@ -7,7 +7,6 @@ public class Employer {
     private long id;
     private String fullName;
     private String email;
-    private Experience experience;
     private List<Application> applications;
     private Profile profile;
 
@@ -37,14 +36,6 @@ public class Employer {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Experience getExperience() {
-        return experience;
-    }
-
-    public void setExperience(Experience experience) {
-        this.experience = experience;
     }
 
     public List<Application> getApplications() {

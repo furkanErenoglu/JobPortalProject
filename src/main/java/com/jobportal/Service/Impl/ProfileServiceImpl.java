@@ -1,5 +1,6 @@
 package com.jobportal.Service.Impl;
 
+import com.jobportal.Data.Employee;
 import com.jobportal.Data.Experience;
 import com.jobportal.Service.ProfileService;
 import com.jobportal.Data.Profile;
@@ -8,13 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileServiceImpl implements ProfileService {
+    private EmployeeServiceImpl employeeService;
+
+    public ProfileServiceImpl(EmployeeServiceImpl employeeService){
+        this.employeeService = employeeService;
+    }
 
     private List<Profile> profileList = new ArrayList<>();
-    private List<String > skills = new ArrayList<>();
 
     @Override
-    public void createProfile(Profile profile) {
+    public void createProfile(Profile profile, long employeeId) {
         profileList.add(profile);
+        Employee employee = employeeService.getEmployeeById(employeeId);
+        employee.setProfile(profile);
         System.out.println("Profile created successfully");
     }
 
@@ -28,8 +35,7 @@ public class ProfileServiceImpl implements ProfileService {
         return null;
         }
 
-        @Override
-        public List<Profile> getProfileList() {
+    public List<Profile> getProfileList() {
             return profileList;
         }
 

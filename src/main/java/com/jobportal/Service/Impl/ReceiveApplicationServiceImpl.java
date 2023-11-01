@@ -26,8 +26,10 @@ public class ReceiveApplicationServiceImpl implements ReceiveApplicationService 
             if (employee.getId() == employeeId){
                 Employer employer = employerService.getEmployerById(employerId);
                 receiveApplications.put(applicationId, employeeService.getEmployeeById(employeeId));
+
                 ReceiveApplication receiveApplication = new ReceiveApplication();
                 receiveApplication.getEmployerList().add(employer);
+                receiveApplication.getEmployeeList().add(employee);
                 System.out.println(" application received ");
             }
         }

@@ -8,11 +8,10 @@ public class Employee {
     private String fullName;
     private String email;
     private Profile profile;
-    private List<Project> projects;
+
     private List<Application> applications;
 
     public Employee(){
-        this.projects = new ArrayList<>();
         this.applications = new ArrayList<>();
     }
 
@@ -46,14 +45,6 @@ public class Employee {
 
     public void setProfile(Profile profile) {
         this.profile = profile;
-    }
-
-    public List<Project> getProjects() {
-        return projects;
-    }
-
-    public void setProjects(List<Project> projects) {
-        this.projects = projects;
     }
 
     public List<Application> getApplications() {

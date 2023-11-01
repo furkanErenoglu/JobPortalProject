@@ -15,8 +15,10 @@ public class Profile {
     private String email;
     private List<Experience> experiences;
 
-    public Profile(){
+    public Profile() {
         this.experiences = new ArrayList<>();
+        this.skills = new ArrayList<>();
+        this.projects = new ArrayList<>();
     }
 
     public long getId() {

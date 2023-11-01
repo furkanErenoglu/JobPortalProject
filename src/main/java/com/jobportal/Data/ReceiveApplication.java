@@ -10,8 +10,11 @@ public class ReceiveApplication {
     private long id;
     private List<Employer> employerList;
 
+    private List<Employee> employeeList;
+
     public ReceiveApplication(){
         this.employerList = new ArrayList<>();
+        this.employeeList = new ArrayList<>();
     }
 
     public long getId() {
@@ -28,5 +31,13 @@ public class ReceiveApplication {
 
     public void setEmployerList(List<Employer> employerList) {
         this.employerList = employerList;
+    }
+
+    public List<Employee> getEmployeeList() {
+        return employeeList;
+    }
+
+    public void setEmployeeList(List<Employee> employeeList) {
+        this.employeeList = employeeList;
     }
 }

@@ -12,12 +12,11 @@ public class ApplicationServiceImpl implements ApplicationService {
     private final EmployerServiceImpl employerService;
 
     private Map<Long, Application> applicationMap;
-    private List<Employee> applicants;
+
 
     public ApplicationServiceImpl(EmployeeServiceImpl employeeService, EmployerServiceImpl employerService) {
         this.employeeService = employeeService;
         this.applicationMap = new HashMap<>();
-        this.applicants = new ArrayList<>();
         this.employerService = employerService;
 
     }
@@ -28,7 +27,6 @@ public class ApplicationServiceImpl implements ApplicationService {
         Application application = getApplicationById(applicationId);
         if (applicant != null) {
             application.getApplicants().add(applicant);
-            applicants.add(applicant);
             applicant.getApplications().add(application);
             System.out.println("applied completed");
         }
@@ -49,9 +47,6 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
 
-    public List<Employee> getApplicants() {
-        return applicants;
-    }
 
 
 
