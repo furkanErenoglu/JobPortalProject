@@ -17,18 +17,18 @@ public class ReceiveApplicationServiceImpl implements ReceiveApplicationService 
         this.employeeService = employeeService;
         this.employerService = employerService;
     }
-    Map<Long  , Employee> receiveApplications = new HashMap<>();
+    private Map<Long, Employee> receiveApplications = new HashMap<>();
 
 
     @Override
     public void receiveApplication(long applicationId, long employeeId, long employerId) {
-        for (Employee employee: employeeService.employeeList){
+        for (Employee employee: employeeService.getEmployeeList()){
             if (employee.getId() == employeeId){
                 Employer employer = employerService.getEmployerById(employerId);
                 receiveApplications.put(applicationId, employeeService.getEmployeeById(employeeId));
 
                 ReceiveApplication receiveApplication = new ReceiveApplication();
-                receiveApplication.getEmployerList().add(employer);
+                receiveApplication.setEmployer(employer);
                 receiveApplication.getEmployeeList().add(employee);
                 System.out.println(" application received ");
             }

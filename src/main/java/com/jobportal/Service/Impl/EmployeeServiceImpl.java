@@ -8,7 +8,7 @@ import java.util.List;
 
 public class EmployeeServiceImpl implements EmployeeService {
 
-    List<Employee> employeeList = new ArrayList<>();
+    private List<Employee> employeeList = new ArrayList<>();
 
     @Override
     public Employee getEmployeeById(long employeeId) {
@@ -25,5 +25,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void createEmployee(Employee employee) {
         employeeList.add(employee);
         System.out.println("Employee added");
+    }
+
+    public List<Employee> getEmployeeList(){
+        return employeeList;
     }
 }

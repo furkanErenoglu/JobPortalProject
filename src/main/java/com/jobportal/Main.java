@@ -67,7 +67,7 @@ public class Main {
         Application application = new Application();
         application.setId(963852741);
 
-        applicationService.addApplication(application, employer.getId());
+        applicationService.createApplication(application, employer.getId());
 
 
         applicationService.toApply(321564789, application.getId());

@@ -38,5 +38,7 @@ public class ExperienceServiceImp implements ExperienceService {
 
     }
 
-
+    public List<Experience> getAllExperience(){
+        return experienceList;
+    }
 }

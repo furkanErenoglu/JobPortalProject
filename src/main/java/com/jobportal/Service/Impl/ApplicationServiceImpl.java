@@ -33,7 +33,7 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public void addApplication(Application application, long employerId) {
+    public void createApplication(Application application, long employerId) {
         Employer employer = employerService.getEmployerById(employerId);
         employer.getApplications().add(application);
         applicationMap.put(application.getId(), application);

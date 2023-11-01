@@ -8,12 +8,11 @@ import java.util.List;
 
 public class ReceiveApplication {
     private long id;
-    private List<Employer> employerList;
+    private Employer employer;
 
     private List<Employee> employeeList;
 
     public ReceiveApplication(){
-        this.employerList = new ArrayList<>();
         this.employeeList = new ArrayList<>();
     }
 
@@ -25,12 +24,12 @@ public class ReceiveApplication {
         this.id = id;
     }
 
-    public List<Employer> getEmployerList() {
-        return employerList;
+    public Employer getEmployer() {
+        return employer;
     }
 
-    public void setEmployerList(List<Employer> employerList) {
-        this.employerList = employerList;
+    public void setEmployer(Employer employer) {
+        this.employer = employer;
     }
 
     public List<Employee> getEmployeeList() {

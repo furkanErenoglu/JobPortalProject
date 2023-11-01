@@ -19,10 +19,16 @@ public class ProfileServiceImpl implements ProfileService {
 
     @Override
     public void createProfile(Profile profile, long employeeId) {
-        profileList.add(profile);
         Employee employee = employeeService.getEmployeeById(employeeId);
-        employee.setProfile(profile);
-        System.out.println("Profile created successfully");
+        if (employee != null){
+            profileList.add(profile);
+
+            employee.setProfile(profile);
+            System.out.println("Profile created successfully");
+        }else {
+            System.out.println("Employee not found for id: " + employeeId);
+        }
+
     }
 
     @Override
