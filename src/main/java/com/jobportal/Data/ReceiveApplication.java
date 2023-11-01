@@ -3,11 +3,16 @@ package com.jobportal.Data;
 import com.jobportal.Data.Application;
 import com.jobportal.Data.Employer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReceiveApplication {
     private long id;
     private List<Employer> employerList;
+
+    public ReceiveApplication(){
+        this.employerList = new ArrayList<>();
+    }
 
     public long getId() {
         return id;

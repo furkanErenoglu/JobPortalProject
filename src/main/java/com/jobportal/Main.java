@@ -4,13 +4,14 @@ import com.jobportal.Data.*;
 import com.jobportal.Service.Impl.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         EmployerServiceImpl employerService = new EmployerServiceImpl();
         EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
-        ProjectServiceImpl projectService = new ProjectServiceImpl();
+        ProjectServiceImpl projectService = new ProjectServiceImpl(employeeService);
         ProfileServiceImpl profileService = new ProfileServiceImpl();
-        ApplicationServiceImpl applicationService = new ApplicationServiceImpl(employeeService);
-        ReceiveApplicationServiceImpl receiveApplicationService =new ReceiveApplicationServiceImpl(applicationService , employeeService);
+        ExperienceServiceImp experienceService = new ExperienceServiceImp(profileService);
+        ApplicationServiceImpl applicationService = new ApplicationServiceImpl(employeeService, employerService);
+        ReceiveApplicationServiceImpl receiveApplicationService =new ReceiveApplicationServiceImpl(applicationService , employeeService, employerService);
 
         Experience experience = new Experience();
         experience.setId(12356879);
@@ -19,6 +20,8 @@ public class Main {
         experience.setStartingDate(2022,1,12);
         experience.setEndDate(2023,5,23);
         experience.setDuration(1);
+
+
 
         Employer employer = new Employer();
         employer.setId(123456789);
@@ -40,6 +43,10 @@ public class Main {
         profileService.createSkills(456123789,"Time management");
 
         profileService.createProfile(profile);
+        System.out.println(profileService.getProfileList());
+
+
+        //experienceService.addExperience(experience,456123789);
 
 
         Employee employee = new Employee();
@@ -54,14 +61,16 @@ public class Main {
         project.setTitle("Flight Reservation System");
         project.setDescription("I want to hire a back-end developer for the Flight Reservation System");
 
-        projectService.createdProject(project);
+        projectService.createdProject(project, employee.getId());
 
         Application application = new Application();
-        application.setId("963852741");
+        application.setId(963852741);
+
+        applicationService.addApplication(application, employer.getId());
 
 
-        applicationService.toApply(321564789,741852963);
-        receiveApplicationService.receiveApplication(application.getId(), 321564789);
+        applicationService.toApply(321564789, application.getId());
+        receiveApplicationService.receiveApplication(963852741 , 321564789, employer.getId());
         System.out.println(receiveApplicationService.comformentApplication());
     }
 }

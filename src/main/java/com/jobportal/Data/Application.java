@@ -4,36 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
-    private String  id;
-    private List<Project> projectList;
-    private List<Employee> applicant;
+    private long  id;
+    private List<Employee> applicants;
 
     public Application(){
-        this.applicant = new ArrayList<>();
-        this.projectList = new ArrayList<>();
+        this.applicants = new ArrayList<>();
     }
 
-    public String  getId() {
+    public long  getId() {
         return id;
     }
 
-    public void setId(String  id) {
+    public void setId(long  id) {
         this.id = id;
     }
 
-    public List<Project> getProjectList() {
-        return projectList;
+    public List<Employee> getApplicants() {
+        return applicants;
     }
 
-    public void setProjectList(List<Project> projectList) {
-        this.projectList = projectList;
-    }
-
-    public List<Employee> getApplicant() {
-        return applicant;
-    }
-
-    public void setApplicant(List<Employee> applicant) {
-        this.applicant = applicant;
+    public void setApplicants(List<Employee> applicants) {
+        this.applicants = applicants;
     }
 }

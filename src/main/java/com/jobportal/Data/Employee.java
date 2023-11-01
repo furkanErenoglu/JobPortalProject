@@ -1,5 +1,6 @@
 package com.jobportal.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Employee {
@@ -7,9 +8,13 @@ public class Employee {
     private String fullName;
     private String email;
     private Profile profile;
-    private Experience experience;
     private List<Project> projects;
     private List<Application> applications;
+
+    public Employee(){
+        this.projects = new ArrayList<>();
+        this.applications = new ArrayList<>();
+    }
 
     public long getId() {
         return id;
@@ -59,11 +64,4 @@ public class Employee {
         this.applications = applications;
     }
 
-    public Experience getExperience() {
-        return experience;
-    }
-
-    public void setExperience(Experience experience) {
-        this.experience = experience;
-    }
 }

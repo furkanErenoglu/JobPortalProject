@@ -4,6 +4,6 @@ import com.jobportal.Data.Project;
 
 
 public interface ProjectService {
-    void createdProject(Project project);
+    void createdProject(Project project, long employeeId);
     Project getProjectById(long projectId);
 }

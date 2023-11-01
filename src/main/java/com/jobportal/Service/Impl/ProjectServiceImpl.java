@@ -1,6 +1,7 @@
 package com.jobportal.Service.Impl;
 
 
+import com.jobportal.Data.Employee;
 import com.jobportal.Data.Project;
 import com.jobportal.Service.ProjectService;
 
@@ -8,9 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProjectServiceImpl implements ProjectService {
+    private EmployeeServiceImpl employeeService;
+
+    public ProjectServiceImpl(EmployeeServiceImpl employeeService){
+        this.employeeService = employeeService;
+    }
     private List<Project> projectList = new ArrayList<>();
     @Override
-    public void createdProject(Project project) {
+    public void createdProject(Project project, long employeeId) {
+        Employee employee = employeeService.getEmployeeById(employeeId);
+        project.getEmployeeList().add(employee);
         projectList.add(project);
         System.out.println("Project created successfully");
 

@@ -1,5 +1,6 @@
 package com.jobportal.Service;
 
+import com.jobportal.Data.Experience;
 import com.jobportal.Data.Profile;
 
 import java.util.ArrayList;
@@ -11,5 +12,6 @@ public interface ProfileService {
 
     List<Profile> getProfileList();
 
-    void createSkills(long ProfileId ,String skills);
+    void createSkills(long profileId ,String skills);
+
 }

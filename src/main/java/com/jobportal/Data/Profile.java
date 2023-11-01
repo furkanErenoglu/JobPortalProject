@@ -1,6 +1,7 @@
 package com.jobportal.Data;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Profile {
@@ -12,6 +13,11 @@ public class Profile {
     private LocalDate birthDate;
     private List<String> skills;
     private String email;
+    private List<Experience> experiences;
+
+    public Profile(){
+        this.experiences = new ArrayList<>();
+    }
 
     public long getId() {
         return id;
@@ -75,5 +81,21 @@ public class Profile {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setGraduationDate(LocalDate graduationDate) {
+        this.graduationDate = graduationDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public List<Experience> getExperiences() {
+        return experiences;
+    }
+
+    public void setExperiences(List<Experience> experiences) {
+        this.experiences = experiences;
     }
 }
